@@ -5,10 +5,15 @@ import com.lti.dao.FetchOrderQuantity;
 import com.lti.dao.UpdateOrder;
 import com.lti.dto.OrderDTO;
 import com.lti.dto.QuantityDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
+@Slf4j
+@Service
 public class OrderSubmissionFunction implements Function<Integer,String> {
 
     @Autowired
@@ -22,6 +27,8 @@ public class OrderSubmissionFunction implements Function<Integer,String> {
 
     @Override
     public String apply(Integer orderId) {
+        log.info("orderId {}",orderId);
+
         OrderDTO orderDTO = fetchOrderDetails.fetchOrder(orderId);
         QuantityDTO quantityDTO = fetchOrderQuantity.fetchQuantity(orderDTO.getProdId());
 
