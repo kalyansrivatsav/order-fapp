@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2a2984f-895e-4da7-a894-0e91cef09830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/dao/FetchOrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/dao/FetchOrderDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/handler/OrderSubmissionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/handler/OrderSubmissionHandler.java" afterDir="false" />
     </list>
@@ -53,7 +51,7 @@
   <component name="RunManager">
     <configuration name="Deploy Functions: validation_fapp:validation_fapp" type="AZURE_FUNCTION_SUPPORT" factoryName="Deploy Functions">
       <FunctionDeployModel>
-        <option name="appSettingsHash" value="DFB5F913ACB42BF1D61E1B3270E09A04" />
+        <option name="appSettingsHash" value="F94B29F868E16B0C5C6939CFE2390A8A" />
         <option name="appSettingsKey" value="39905e65-fc38-4bb9-916b-cff6b712e52a" />
         <option name="deploymentStagingDirectoryPath" />
         <option name="functionAppConfig">

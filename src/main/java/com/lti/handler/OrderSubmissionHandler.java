@@ -10,7 +10,7 @@ public class OrderSubmissionHandler extends FunctionInvoker<Integer,String> {
     private static final String connection="STORAGE_CONNECTION_STRING";
 
     @FunctionName("OrderSubmissionFunction")
-    public String execute(@QueueTrigger(name = "orderId",queueName = "srivatsav-order-queue" ) int orderId, final ExecutionContext executionContext){
+    public String execute(@QueueTrigger(name = "orderId",queueName = "srivatsav-order-queue", connection = connection) int orderId, final ExecutionContext executionContext){
         return handleRequest(orderId,executionContext);
     }
 }
