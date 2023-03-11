@@ -1,8 +1,7 @@
 package com.lti.function;
 
-import com.lti.dao.FetchOrderDetails;
-import com.lti.dao.FetchOrderQuantity;
-import com.lti.dao.UpdateOrder;
+import com.lti.dao.OrderDAO;
+import com.lti.dao.ProductDAO;
 import com.lti.dto.OrderDTO;
 import com.lti.dto.QuantityDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -17,28 +16,25 @@ import java.util.function.Function;
 public class OrderSubmissionFunction implements Function<Integer,String> {
 
     @Autowired
-    private FetchOrderDetails fetchOrderDetails;
+    private OrderDAO orderDAO;
 
     @Autowired
-    private FetchOrderQuantity fetchOrderQuantity;
-
-    @Autowired
-    private UpdateOrder updateOrder;
+    private ProductDAO productDAO;
 
     @Override
     public String apply(Integer orderId) {
         log.info("orderId {}",orderId);
 
-        OrderDTO orderDTO = fetchOrderDetails.fetchOrder(orderId);
-        QuantityDTO quantityDTO = fetchOrderQuantity.fetchQuantity(orderDTO.getProdId());
+        OrderDTO orderDTO = orderDAO.fetchOrder(orderId);
+        QuantityDTO quantityDTO = productDAO.fetchQuantity(orderDTO.getProdId());
 
         if(quantityDTO.getQuantity()>= quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity()){
-            updateOrder.orderQuantityUpdate(orderDTO.getProdId(),quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity());
-            updateOrder.orderStatusUpdate(orderId,"ACCEPTED");
+            productDAO.orderQuantityUpdate(orderDTO.getProdId(),quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity());
+            orderDAO.orderStatusUpdate(orderId,"ACCEPTED");
             return "Order successfully processed";
         }
         else {
-            updateOrder.orderStatusUpdate(orderId,"LIMIT_EXCEEDED");
+            orderDAO.orderStatusUpdate(orderId,"LIMIT_EXCEEDED");
             return "Order failed";
         }
     }

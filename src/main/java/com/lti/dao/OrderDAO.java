@@ -2,7 +2,7 @@ package com.lti.dao;
 
 import com.lti.dto.OrderDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -11,10 +11,15 @@ import java.util.Map;
 
 @Slf4j
 @Repository
-public class FetchOrderDetails {
+public class OrderDAO {
 
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    public OrderDAO(@Qualifier("orderTemplate")NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    }
 
     public OrderDTO fetchOrder(int orderId){
         log.info("orderId {}",orderId);
@@ -32,5 +37,15 @@ public class FetchOrderDetails {
         });
         log.info("result orderDTO {}",result);
         return result[0];
+    }
+
+    public int orderStatusUpdate(int orderId, String status){
+        String SQL = "update [order] set status=:status where id=:orderId";
+
+        Map<String,Object> sqlparams = new HashMap<>();
+        sqlparams.put("orderId",orderId);
+        sqlparams.put("status",status);
+
+        return namedParameterJdbcTemplate.update(SQL,sqlparams);
     }
 }

@@ -1,7 +1,7 @@
 package com.lti.dao;
 
 import com.lti.dto.QuantityDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class FetchOrderQuantity {
+public class ProductDAO {
 
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    public ProductDAO(@Qualifier("factoryTemplate") NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    }
 
     public QuantityDTO fetchQuantity(long prodid){
         QuantityDTO[] result = new QuantityDTO[1];
@@ -29,5 +33,15 @@ public class FetchOrderQuantity {
             result[0]=quantityDTO;
         });
         return result[0];
+    }
+
+    public int orderQuantityUpdate(long prodid, int orderedQuantity){
+        String SQL = "update [product] set ordered_quantity=:orderedQuantity where id=:prodid";
+
+        Map<String,Object> sqlparams = new HashMap<>();
+        sqlparams.put("prodid",prodid);
+        sqlparams.put("orderedQuantity",orderedQuantity);
+
+        return namedParameterJdbcTemplate.update(SQL,sqlparams);
     }
 }
