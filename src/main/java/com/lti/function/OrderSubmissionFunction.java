@@ -29,20 +29,17 @@ public class OrderSubmissionFunction implements Function<Integer,String> {
     public String apply(Integer orderId) {
         log.info("orderId {}",orderId);
 
-//        OrderDTO orderDTO = fetchOrderDetails.fetchOrder(orderId);
-//        QuantityDTO quantityDTO = fetchOrderQuantity.fetchQuantity(orderDTO.getProdId());
-//
-//        if(quantityDTO.getQuantity()>= quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity()){
-//            updateOrder.orderQuantityUpdate(orderDTO.getProdId(),quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity());
-//            updateOrder.orderStatusUpdate(orderId,"ACCEPTED");
-//            return "Order successfully processed";
-//        }
-//        else {
-//            updateOrder.orderStatusUpdate(orderId,"LIMIT_EXCEEDED");
-//            return "Order failed";
-//        }
+        OrderDTO orderDTO = fetchOrderDetails.fetchOrder(orderId);
+        QuantityDTO quantityDTO = fetchOrderQuantity.fetchQuantity(orderDTO.getProdId());
 
-        updateOrder.orderStatusUpdate(orderId,"TEST");
-        return "success";
+        if(quantityDTO.getQuantity()>= quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity()){
+            updateOrder.orderQuantityUpdate(orderDTO.getProdId(),quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity());
+            updateOrder.orderStatusUpdate(orderId,"ACCEPTED");
+            return "Order successfully processed";
+        }
+        else {
+            updateOrder.orderStatusUpdate(orderId,"LIMIT_EXCEEDED");
+            return "Order failed";
+        }
     }
 }

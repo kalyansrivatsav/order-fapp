@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b2a2984f-895e-4da7-a894-0e91cef09830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +48,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+      <command value="mvn azure-functions:run" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="Deploy Functions: validation_fapp:validation_fapp" type="AZURE_FUNCTION_SUPPORT" factoryName="Deploy Functions">
       <FunctionDeployModel>
