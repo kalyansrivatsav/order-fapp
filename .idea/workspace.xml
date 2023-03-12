@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2a2984f-895e-4da7-a894-0e91cef09830" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b2a2984f-895e-4da7-a894-0e91cef09830" name="Changes" comment="Added two data sources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/dao/FetchOrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/dao/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/dao/FetchOrderQuantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/dao/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/dao/UpdateOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/dao/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/dao/OrderDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lti/function/OrderSubmissionFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,6 +203,18 @@
       <option name="presentableId" value="Default" />
       <updated>1677773552713</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added two data sources">
+      <created>1678535517939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678535517939</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added two data sources" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added two data sources" />
   </component>
 </project>

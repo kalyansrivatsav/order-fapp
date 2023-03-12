@@ -39,7 +39,7 @@ public class OrderDAO {
         return result[0];
     }
 
-    public int orderStatusUpdate(int orderId, String status){
+    public int orderStatusUpdate(int orderId, int status){
         String SQL = "update [order] set status=:status where id=:orderId";
 
         Map<String,Object> sqlparams = new HashMap<>();

@@ -4,6 +4,7 @@ import com.lti.dao.OrderDAO;
 import com.lti.dao.ProductDAO;
 import com.lti.dto.OrderDTO;
 import com.lti.dto.QuantityDTO;
+import com.lti.dto.status;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,11 @@ public class OrderSubmissionFunction implements Function<Integer,String> {
 
         if(quantityDTO.getQuantity()>= quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity()){
             productDAO.orderQuantityUpdate(orderDTO.getProdId(),quantityDTO.getOrderedQuantity() + orderDTO.getSelectedQuantity());
-            orderDAO.orderStatusUpdate(orderId,"ACCEPTED");
+            orderDAO.orderStatusUpdate(orderId, status.ACCEPTED.getValue());
             return "Order successfully processed";
         }
         else {
-            orderDAO.orderStatusUpdate(orderId,"LIMIT_EXCEEDED");
+            orderDAO.orderStatusUpdate(orderId,status.LIMIT_EXCEEDED.getValue());
             return "Order failed";
         }
     }
